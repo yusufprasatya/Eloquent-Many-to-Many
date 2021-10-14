@@ -35,4 +35,17 @@ class MatakuliahController extends Controller
         $matakuliah->mahasiswas()->attach($mahasiswas);
         echo "Proses attach berhasil";
     }
+
+    public function tampil()
+    {
+        $matakuliah = Matakuliah::where('nama', 'Kalkulus Dasar')->first();
+        echo "## Daftar mahasiswa yang mengambil mata kuliah $matakuliah->nama ## ";
+        echo "<hr>";
+
+        foreach ($matakuliah->mahasiswas as $mahasiswa) {
+            echo "$mahasiswa->nim: $mahasiswa->nama ($mahasiswa->jurusan) <br>";
+        }
+    }
+
+    
 }
