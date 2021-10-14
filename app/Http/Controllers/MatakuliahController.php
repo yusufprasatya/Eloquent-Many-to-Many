@@ -26,4 +26,13 @@ class MatakuliahController extends Controller
         $matakuliah->mahasiswas()->attach($mahasiswa);
         echo "Proses attach berhasil";
     }
+
+    public function attachWhere()
+    {
+        $matakuliah = Matakuliah::where('nama', 'Kalkulus Dasar')->first();
+        $mahasiswas = Mahasiswa::where('jurusan', 'Teknik Informatika')->get();
+
+        $matakuliah->mahasiswas()->attach($mahasiswas);
+        echo "Proses attach berhasil";
+    }
 }
