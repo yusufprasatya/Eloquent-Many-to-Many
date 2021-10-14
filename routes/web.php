@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MatakuliahController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,15 @@ Route::prefix('/mahasiswa')->group(function(){
     Route::get('/toggle', [MahasiswaController::class, 'toggle']);
     Route::get('/delete', [MahasiswaController::class, 'delete']);
    
+});
+
+Route::prefix('matakuliah')->group(function () {
+
+    Route::get('all', [MatakuliahController::class, 'all']);
+    Route::get('attach', [MatakuliahController::class, 'attach']);
+    Route::get('attach-where', [MatakuliahController::class, 'attachWhere']);
+    Route::get('tampil', [MatakuliahController::class, 'tampil']);
+    Route::get('detach', [MatakuliahController::class, 'detach']);
+    Route::get('sync', [MatakuliahController::class, 'sync']);
+    Route::get('pivot', [MatakuliahController::class, 'pivot']);
 });
