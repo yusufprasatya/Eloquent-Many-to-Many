@@ -56,5 +56,12 @@ class MatakuliahController extends Controller
         echo "Proses detach berhasil";
     }
 
+    public function sync()
+    {
+        Matakuliah::where('nama', 'Kalkulus Dasar')->first()->mahasiswas()
+        ->sync(Mahasiswa::find([2, 3, 4]));
+
+        echo "Proses sync berhasil";
+    }
     
 }
