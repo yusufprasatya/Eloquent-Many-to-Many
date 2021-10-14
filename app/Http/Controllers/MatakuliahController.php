@@ -47,5 +47,14 @@ class MatakuliahController extends Controller
         }
     }
 
+    public function detach()
+    {
+        $matakuliah = Matakuliah::where('nama', 'Kalkulus Dasar')->first();
+        $mahasiswa = Mahasiswa::where('nama', 'Galang Maryadi')->first();
+
+        $matakuliah->mahasiswas()->detach($mahasiswa);
+        echo "Proses detach berhasil";
+    }
+
     
 }
