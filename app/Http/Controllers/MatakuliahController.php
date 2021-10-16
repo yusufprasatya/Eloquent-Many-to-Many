@@ -63,5 +63,21 @@ class MatakuliahController extends Controller
 
         echo "Proses sync berhasil";
     }
+
+    public function pivot()
+    {
+        $matakuliah = Matakuliah::where('nama', 'Kalkulus Dasar')->first();
+
+        echo "## Daftar mahasiswa yang mengambil mata kuliah $matakuliah->nama ## ";
+        echo "<hr>";
+
+        foreach ($matakuliah->mahasiswas as $mahasiswa) {
+
+            //Menampilkan mata kuliah dan jurusan
+            echo "$mahasiswa->nama ($mahasiswa->jurusan),
+                Mengambil matakuliah pada
+                {$mahasiswa->pivot->created_at->isoFormat('D MMMM Y')} <br>";
+        };
+    }
     
 }

@@ -18,6 +18,8 @@ class CreateMahasiswaMatakuliahTable extends Migration
             $table->foreignId('mahasiswa_id')->constrained()->onDelete('cascade');
             $table->foreignId('matakuliah_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+
+            $table->unique(['mahasiswa_id', 'matakuliah_id']);
         });
     }
 
